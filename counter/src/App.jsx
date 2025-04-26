@@ -8,7 +8,11 @@ function App() {
     if (counter > 0) {
       setCounter(counter - 1);
     }
-    // else do nothing when counter is already 0
+  };
+  const handleIncrement = () => {
+    if (counter < 20) {
+      setCounter(counter + 1);
+    }
   };
 
   return (
@@ -18,7 +22,7 @@ function App() {
 
       <div className="flex space-x-6">
         <button
-          onClick={() => setCounter(counter + 1)}
+          onClick={handleIncrement}
           className="bg-green-500 hover:bg-green-600 px-6 py-2 text-lg font-semibold transform rounded-md transition duration-150 active:scale-95"
         >
           Increment
