@@ -30,57 +30,59 @@ function App() {
   }, [passLength, numAllowed, charAllowed]);
 
   return (
-    <div className="w-full max-w-md mx-auto shadow-md rounded-lg px-4 py-3 my-8 text-orange-500 bg-gray-800">
-      <h1 className="text-white text-center mb-4 font-bold text-xl">
-        Password Generator
-      </h1>
-      <div className="flex shadow rounded-lg overflow-hidden mb-4">
-        <input
-          type="text"
-          value={password}
-          className="outline-none w-full py-1 px-3 bg-white text-black"
-          placeholder="Password"
-          readOnly
-          ref={passwordRef}
-        />
-        <button
-          className="outline-none bg-blue-600 hover:bg-blue-900 text-white px-3 py-0.5 shrink-0 duration-50 active:scale-95"
-          onClick={copyPasswordToClipboard}
-        >
-          COPY
-        </button>
-      </div>
-      <div className="flex text-sm gap-x-2 text-white">
-        <div className="flex items-center gap-x-1">
+    <div className="flex items-center justify-center min-h-screen bg-black">
+      <div className="flex-wrap w-full max-w-md mx-auto shadow-md rounded-lg px-4 py-3 my-8 text-orange-500 bg-gray-800">
+        <h1 className="text-white text-center mb-4 font-bold text-xl">
+          Password Generator
+        </h1>
+        <div className="flex shadow rounded-lg overflow-hidden mb-4">
           <input
-            type="range"
-            min={8}
-            max={30}
-            value={passLength}
-            onChange={(e) => setPassLength(e.target.value)}
-            className="cursor-pointer"
+            type="text"
+            value={password}
+            className="outline-none w-full py-1 px-3 bg-white text-black"
+            placeholder="Password"
+            readOnly
+            ref={passwordRef}
           />
-          <label>Length: {passLength}</label>
+          <button
+            className="outline-none bg-blue-600 hover:bg-blue-900 text-white px-3 py-0.5 shrink-0 duration-50 active:scale-95"
+            onClick={copyPasswordToClipboard}
+          >
+            COPY
+          </button>
         </div>
-        <div className="flex items-center gap-x-1">
-          <input
-            type="checkbox"
-            defaultChecked={numAllowed}
-            id="numAllowInput"
-            onChange={() => {
-              setNumAllowed((prev) => !prev);
-            }}
-          />
-          <h1>Numbers</h1>
-          <input
-            type="checkbox"
-            defaultChecked={numAllowed}
-            id="charAllowInput"
-            onChange={() => {
-              setCharAllowed((prev) => !prev);
-            }}
-          />
-          <h1>Characters</h1>
+        <div className="flex text-sm gap-x-2 text-white">
+          <div className="flex items-center gap-x-1">
+            <input
+              type="range"
+              min={8}
+              max={30}
+              value={passLength}
+              onChange={(e) => setPassLength(e.target.value)}
+              className="cursor-pointer"
+            />
+            <label>Length: {passLength}</label>
+          </div>
+          <div className="flex items-center gap-x-1">
+            <input
+              type="checkbox"
+              defaultChecked={numAllowed}
+              id="numAllowInput"
+              onChange={() => {
+                setNumAllowed((prev) => !prev);
+              }}
+            />
+            <h1>Numbers</h1>
+            <input
+              type="checkbox"
+              defaultChecked={numAllowed}
+              id="charAllowInput"
+              onChange={() => {
+                setCharAllowed((prev) => !prev);
+              }}
+            />
+            <h1>Characters</h1>
+          </div>
         </div>
       </div>
     </div>
